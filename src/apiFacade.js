@@ -47,7 +47,6 @@ function apiFacade() {
         setToken(res.token);
       })
       .catch((err) => {
-        console.log(err);
         throw err;
       });
   };

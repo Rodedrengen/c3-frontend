@@ -12,7 +12,6 @@ function RemoteServerFetch() {
     facade
       .fetchData('/info/fetch', 'GET')
       .then((data) => {
-        console.log(data);
         setServerRes(data);
       })
       .catch((err) => {
