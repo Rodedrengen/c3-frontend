@@ -17,6 +17,7 @@ function Home(props) {
             <ol>
               <li>Run 'npm install' to install dependencies</li>
               <li>Run 'npm start' to begin local server</li>
+              <li>Change the server URL in /src/settings.js</li>
               <li>
                 To add a new page, add it to the Switch in App.js, and the
                 header.jsx component
