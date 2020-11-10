@@ -1,1 +1,1 @@
-export const serverURL = "http://localhost:8080/jpareststarter/api/";
+export const URL = 'http://localhost:8080/CA3_war/api';

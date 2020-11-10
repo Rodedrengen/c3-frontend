@@ -1,50 +1,34 @@
-import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink
-} from "react-router-dom";
-import Home from './components/Home'
-import Company from './components/Company'
-import Products from './components/Products'
-import Header from './components/Header'
-import AddBook from './components/AddBook'
-import FindBook from './components/FindBook'
+import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import DashBoard from './components/DashBoard';
+import Home from './components/Home';
+import { BrowserRouter as Switch, Route, Redirect } from 'react-router-dom';
 
-function App(props) {
+function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
     <div>
-      <Header />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         </Route>
-        <Route path="/products">
-          <Products bookFacade={props.bookFacade} />
+        <Route path="/dashboard">
+          <DashBoard loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         </Route>
-        <Route path="/company">
-          <Company />
-        </Route>
-        <Route path="/add-book">
-          <AddBook bookFacade={props.bookFacade} />
-        </Route>
-        <Route path="/find-book">
-          <FindBook bookFacade={props.bookFacade} />
-        </Route>
-        <Route>
+        <Route path="/404">
           <NoMatch />
         </Route>
+        <Redirect to="/404" />
       </Switch>
     </div>
-
   );
 }
-
 export default App;
 
 function NoMatch() {
   return (
-    <h1>Error, page not found</h1>
-  )
+    <div>
+      <h2>Page not found</h2>
+    </div>
+  );
 }
